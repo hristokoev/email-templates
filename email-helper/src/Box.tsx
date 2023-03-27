@@ -3,11 +3,11 @@ import React from 'react'
 const Box = ({ data }) => {
 	return (
 		<div>
-			{data.map(({ id, title, content, block }) => (
-				<div key={id}>
+			{data.map(({ id, title, content, block }, index) => (
+				<div id={id} key={index}>
 					<h4>{title}</h4>
-					{content.map((el) => (
-						<p dangerouslySetInnerHTML={{__html: el}}></p>
+					{content.map((el, index) => (
+						<p dangerouslySetInnerHTML={{__html: el}} key={index}></p>
 					))}
 				</div>
 			))}
