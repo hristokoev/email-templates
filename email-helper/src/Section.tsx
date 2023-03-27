@@ -1,13 +1,23 @@
-import Box from "./Box"
+import Group from "./Group"
 
-const Section = ({ data }) => {
+interface SectionData {
+	data: {
+		id: string;
+		title: string;
+		content: string[];
+		groups: { id: string; title: string; content: string[]; block: number; }[];
+		block: number;
+	};
+}
+
+const Section = ({ data }: SectionData) => {
 	return (
 		<div id={data.id}>
 			{data.title}
 			{data.content.map((el, index) => (
 				<p dangerouslySetInnerHTML={{ __html: el }} key={index}></p>
 			))}
-			<Box data={data.groups} />
+			<Group groupData={data.groups} />
 		</div>
 	)
 }
