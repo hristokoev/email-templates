@@ -7,7 +7,7 @@ function App() {
 	const [jsonData, setJsonData] = useState([])
 
 	const getData = () => {
-		fetch('src/data.json', {
+		fetch('./data.json', {
 				headers: {
 					'Content-Type': 'application/json',
 					'Accept': 'application/json'
@@ -31,7 +31,7 @@ function App() {
 		gender: "Mr.",
 		lastName: "XXX",
 		disruption: "delay",
-		disrupted: "DISRUPTED",
+		disrupted: "delayed",
 		reasons: "REASONS",
 		delay: "DELAY",
 		flight: "XX XXXX",
@@ -57,20 +57,6 @@ function App() {
 			else setBlock1Data([...block1Data, text])
 		}
 	}
-
-	const checkKeyPress = useCallback((e: { key: any; keyCode: any; }) => {
-		const { key, keyCode } = e;
-		if (keyCode >= 49 && keyCode <= 56) {
-			setSection(keyCode - 49)
-		}
-	}, [section]);
-
-	useEffect(() => {
-		window.addEventListener("keydown", checkKeyPress);
-		return () => {
-			window.removeEventListener("keydown", checkKeyPress);
-		};
-	}, [checkKeyPress]);
 
 	if (!jsonData.length) return
 
@@ -128,7 +114,7 @@ function App() {
 				</div>
 				<div className="mt-4 mb-8 grid grid-cols-8 gap-2 text-gray-300">
 					{jsonData.map(({ id, title, icon }, index) => (
-						<button onClick={() => setSection(index)} key={id} className={`px-4 py-2 border border-gray-600 rounded-lg ${index === section ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`}>{index + 1}. {title} {icon}</button>
+						<button onClick={() => setSection(index)} key={id} className={`px-4 py-2 border border-gray-600 rounded-lg ${index === section ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`}>{icon} {title}</button>
 					))}
 				</div>
 				<div className="flex flex-col gap-4">
