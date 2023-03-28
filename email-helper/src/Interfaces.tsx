@@ -7,6 +7,7 @@ export interface SectionData {
 		block: number;
 	};
 	formData: FormData;
+	addToBlock: (index: number, text: string) => any;
 }
 
 export interface GroupData {
@@ -17,6 +18,7 @@ export interface GroupData {
 		block: number;
 	}[];
 	formData: FormData;
+	addToBlock: (index: number, text: string) => any;
 }
 
 export interface FormData {	
@@ -24,6 +26,8 @@ export interface FormData {
 	lastName: string;
 	disruption: string;
 	disrupted: string;
+	reasons: string,
+	delay: string,
 	flight: string;
 	flightDep: string;
 	flightArr: string;
