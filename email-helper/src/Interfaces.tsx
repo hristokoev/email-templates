@@ -6,6 +6,8 @@ export interface SectionData {
 		groups: { id: string; title: string; content: string[]; block: number; }[];
 		block: number;
 	};
+	block0Data: string[];
+	block1Data: string[];
 	formData: FormData;
 	addToBlock: (index: number, text: string) => any;
 }
@@ -17,6 +19,8 @@ export interface GroupData {
 		content: string[];
 		block: number;
 	}[];
+	block0Data: string[];
+	block1Data: string[];
 	formData: FormData;
 	addToBlock: (index: number, text: string) => any;
 }

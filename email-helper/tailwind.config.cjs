@@ -9,6 +9,6 @@ module.exports = {
 	},
 	plugins: [],
 	safelist: [
-		"text-red-500"
+		"text-red-400"
 	]
 }
