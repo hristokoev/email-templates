@@ -19,7 +19,7 @@ const Section = ({ data, formData, block0Data, block1Data, addToBlock }: Section
 	}
 
 	return (
-		<div id={data.id} className="h-[28em] overflow-y-scroll text-gray-300">
+		<div id={data.id} className="h-[33em] overflow-y-scroll text-gray-300">
 			{data.content.map((el, index) => (
 				<div className="relative flex pr-8 items-start" key={index}>
 					{(block0Data.includes(interpolate(el, formDataInterpolate)) || block1Data.includes(interpolate(el, formDataInterpolate))) && <span className="absolute top-1 left-2">✔️</span>}

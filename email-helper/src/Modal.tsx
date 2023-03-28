@@ -35,7 +35,7 @@ export default function Modal({generatedText}: any) {
 									</button>
 								</div>
 								{/*body*/}
-								<div className="relative p-6 flex-auto">
+								<div className="relative p-6 flex-auto outline-none">
 									{/* <p className="my-4 text-slate-500 text-lg leading-relaxed"> */}
 										{generatedText.map((el: string) => (<p dangerouslySetInnerHTML={{__html: el}} className="py-1"></p>))}
 									{/* </p> */}

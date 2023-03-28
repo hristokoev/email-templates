@@ -62,13 +62,13 @@ function App() {
 
 	return (
 		<>
-			<div className="mt-4 max-w-screen-2xl mx-auto">
+			<div className="w-full fixed mt-4 px-8 mx-auto">
 				<div className="flex justify-end gap-2">
 					<button className="p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white text-sm" onClick={() => alert("Soon!")}>Load JSON</button>
 					<button className="p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white text-sm" onClick={() => alert("Soon!")}>Export JSON</button>
 				</div>
 			</div>
-			<div className="mt-4 mb-16 max-w-screen-2xl mx-auto">
+			<div className="mt-4 px-8 mx-auto">
 				<div className="mb-8 flex flex-col justify-center">
 					<h1 className="p-4 text-white text-4xl text-center font-bold">CC Email Templates Generator v1.0</h1>
 					<span className="text-slate-300 text-center">For the lazy ones...</span>
@@ -112,17 +112,17 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<div className="mt-4 mb-8 grid grid-cols-8 gap-2 text-gray-300">
+				<div className="mt-4 mb-4 grid grid-cols-8 gap-2 text-gray-300">
 					{jsonData.map(({ id, title, icon }, index) => (
 						<button onClick={() => setSection(index)} key={id} className={`px-4 py-2 border border-gray-600 rounded-lg ${index === section ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`}>{icon} {title}</button>
 					))}
 				</div>
-				<div className="flex flex-col gap-4">
+				<div className="p-4 bg-gray-900/25 border border-gray-700 rounded-md">
 					<Section data={jsonData[section]} formData={formData} block0Data={block0Data} block1Data={block1Data} addToBlock={addToBlock} />
-					<div className="flex gap-2">
-						<Modal generatedText={block0Data.concat(block1Data)} />
-						<button className="w-[10%] p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white" onClick={() => { setBlock0Data([]); setBlock1Data([]) }}>❌</button>
-					</div>
+				</div>
+				<div className="mt-4 flex gap-2">
+					<Modal generatedText={block0Data.concat(block1Data)} />
+					<button className="w-[10%] p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white" onClick={() => { setBlock0Data([]); setBlock1Data([]) }}>❌</button>
 				</div>
 
 			</div>
