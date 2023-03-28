@@ -7,14 +7,13 @@ function App() {
 	const [jsonData, setJsonData] = useState([])
 
 	const getData = () => {
-		fetch('src/data.json'
-			, {
+		fetch('src/data.json', {
 				headers: {
 					'Content-Type': 'application/json',
 					'Accept': 'application/json'
 				}
 			}
-		)
+			)
 			.then(function (response) {
 				return response.json();
 			})
@@ -47,15 +46,15 @@ function App() {
 	const addToBlock = (index: number, text: string) => {
 		if (index === 0) {
 			if (block0Data.includes(text)) {
-				setBlock0Data(data => data.filter((el) => el !== text ))
+				setBlock0Data(data => data.filter((el) => el !== text))
 			}
-			else setBlock0Data([ ...block0Data, text ])
+			else setBlock0Data([...block0Data, text])
 		}
 		else if (index === 1) {
 			if (block1Data.includes(text)) {
-				setBlock1Data(data => data.filter((el) => el !== text ))
+				setBlock1Data(data => data.filter((el) => el !== text))
 			}
-			else setBlock1Data([ ...block1Data, text ])
+			else setBlock1Data([...block1Data, text])
 		}
 	}
 
@@ -120,6 +119,7 @@ function App() {
 						<div className="mt-2 flex gap-2 col-span-2 text-gray-300">
 							<input type="text" placeholder="Flight" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flight: (e.target as HTMLButtonElement).value }) }} />
 							<input type="text" placeholder="From" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDep: (e.target as HTMLButtonElement).value }) }} />
+							{formData.flightDep && formData.flightArr && <button onClick={() => alert("Soon!")}>✈</button>}
 							<input type="text" placeholder="To" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightArr: (e.target as HTMLButtonElement).value }) }} />
 							<input type="text" placeholder="Connection" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightCon: (e.target as HTMLButtonElement).value }) }} />
 							<input type="date" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDate: (e.target as HTMLButtonElement).value }) }} />
@@ -135,10 +135,10 @@ function App() {
 					<Section data={jsonData[section]} formData={formData} block0Data={block0Data} block1Data={block1Data} addToBlock={addToBlock} />
 					<div className="flex gap-2">
 						<Modal generatedText={block0Data.concat(block1Data)} />
-						<button className="w-[10%] p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white" onClick={() => {setBlock0Data([]); setBlock1Data([])}}>❌</button>
+						<button className="w-[10%] p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white" onClick={() => { setBlock0Data([]); setBlock1Data([]) }}>❌</button>
 					</div>
 				</div>
-				
+
 			</div>
 		</>
 	)
