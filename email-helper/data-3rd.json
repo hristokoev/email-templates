@@ -1,0 +1,195 @@
+[
+	{
+		"id": "section_greetings",
+		"title": "General",
+		"content": [
+			"To Whom It May Concern,",
+			"Our reference: <br>Your reference: ",
+			"We are reaching out to you with regards to your claim for our mutual client, {gender} {lastName}.",
+			"We are reaching out to you in response to your message, regarding the claim for {gender} {lastName} and the disrupted flight {flight} from {flightDep} to {flightArr} on {flightDate}.",
+			"We are reaching out to you regarding the {disruption} of the flight {flight} from {flightDep} and your claim for compensation for {gender} {lastName}.",
+			"We are reaching out to you regarding the {disruption} of the flight {flight} to {flightArr} and your claim for compensation for {gender} {lastName}.",
+			"We are reaching out to you regarding the flight {disruption} from {flightDep} to {flightArr} on {flightDate} and your claim for compensation for {gender} {lastName}.",
+			"We are reaching out to you regarding the flight {disruption} from {flightDep} to {flightArr} with connection {flightCon} and your claim for compensation for {gender} {lastName}.",
+			"We make every effort to keep our customers informed. To reduce the impact of this action on our passengers, we arrange re-bookings and re-routings with other carriers or by train and transfer reservations to alternative dates whenever possible."
+		],
+		"groups": [
+			{
+				"id": "general_delta",
+				"title": "Delta Airlines",
+				"content": [
+					"Air France KLM assists Delta Air Line for the passengers living in Europe."
+				],
+				"block": 0
+			}
+		],
+		"block": 0,
+		"icon": "ℹ️"
+	},
+	{
+		"id": "section_requests",
+		"title": "Requests",
+		"content": [
+			"For me to proceed with your claim we would need the following:",
+			"In order for me to continue processing your claim for {gender} {lastName}, we would need the following:",
+			"A complete bank account details (postal details) including your IBAN code (such as: IBAN GB29 NWBK 6016 1331 9268 19), SWIFT code, bank name, bank address, currency of your account and the full name and address of the account holder.",
+			"A copy of the affected passengers' ID or passport (with photo and serial number redacted).",
+			"A signed power of attorney from the affected passenger(s)."
+		],
+		"groups": [
+			{
+				"id": "requests_iban",
+				"title": "IBAN",
+				"content": [
+					"For me to proceed with your claim I would be grateful if you could forward me as soon as possible your complete bank details (postal details) including your IBAN code (such as: IBAN GB29 NWBK 6016 1331 9268 19), SWIFT code, bank name, bank address, currency of your account and the full name and address of the account holder.",
+					"The bank account details you have provided are for the digital bank Revolut and the majority of payments made to these accounts are returned to us. We are in discussions with Revolut about this but the issue cannot be solved at short notice. In view of this, I would be grateful if you could please provide details of an alternative bank account with another organisation in order that we can make this payment to you as soon as possible."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_id",
+				"title": "Copy of ID",
+				"content": [
+					"For me to proceed with your claim, I would need a copy of the affected passengers' ID or passport (with photo and serial number redacted).",
+					"In order for me to continue processing your claim, I will need a copy of {gender} {lastName}'s ID or passport (with photo and serial number redacted)."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_poa",
+				"title": "Power of attorney",
+				"content": [
+					"For me to proceed with your claim, I would need a signed power of attorney from the affected passenger(s).",
+					"In order for me to continue processing your claim, I will need a signed power of attorney from {gender} {lastName}."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_id_poa",
+				"title": "ID and POA",
+				"content": [
+					"In order for me to continue processing your claim, I will need a copy of the affected passengers' ID or passport (with photo and serial number redacted) and a signed power of attorney.",
+					"In order for me to continue processing your claim, I will need a copy of {gender} {lastName}'s ID or passport (with photo and serial number redacted) and a signed power of attorney."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_notes",
+				"title": "Notes",
+				"content": [
+					"Please note that you can reply directly to this email and attach all the documents requested.",
+					"You can reply to this email with all the necessary information and documents.",
+					"Your case will be processed as soon as we receive all the necessary information and documents."
+				],
+				"block": 0
+			}
+		],
+		"block": 0,
+		"icon": "❔"
+	},
+	{
+		"id": "section_requests_after",
+		"title": "Request - After",
+		"content": [
+			"Thank you for sending me your bank details.",
+			"Thank you for sending me the requested ID.",
+			"Thank you for sending me the requested power of attorney.",
+			"Thank you for sending me the requested ID and power of attorney.",
+			"Thank you for sending me the requested information.",
+			"Thank you for sending me the requested documents."
+		],
+		"groups": [],
+		"block": 0,
+		"icon": "✔️"
+	},
+	{
+		"id": "section_investigation",
+		"title": "Investigation",
+		"content": [
+			"The flight in question, {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
+			"According to our system, the flight {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
+			"After further investigation, the flight {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
+			"Our records show that flight {flight} on {flightDate} was {disrupted} due to {reasons} and arrived at airport {flightCon} at with delay of {delay}."
+		],
+		"groups": [],
+		"block": 0,
+		"icon": "✈️"
+	},
+	{
+		"id": "section_pay",
+		"title": "Pay",
+		"content": [
+			"This situation is one where EU Regulation 261/2004 is due.",
+			"{gender} {lastName} as a result of this flight {disruption} is eligible for compensation as per EU Regulation 261/2004.",
+			"As a result, our mutual client, {gender} {lastName} is eligible for compensation as per EU Regulation 261/2004.",
+			"In view of this, I’ve arranged the following transfer to your bank account:",
+			"We will be transferring the following amount to your bank account:",
+			"I’ve arranged the transfer of the following amount to your bank account:"
+		],
+		"groups": [
+			{
+				"id": "pay_notes",
+				"title": "Notes",
+				"content": [
+					"Please remember that this is an international payment which can take up to three weeks to be processed."
+				],
+				"block": 1
+			}
+		],
+		"block": 0,
+		"icon": "💲"
+	},
+	{
+		"id": "section_deny",
+		"title": "Deny",
+		"content": [
+			"A situation such as this unfortunately does not entitle {gender} {lastName} to compensation under EU Regulation 261/2004.",
+			"A situation like this which presents itself beyond our scope of influence can be regarded as an extraordinary circumstance and therefore is not one where there is an entitlement to compensation under EU Regulation 261/2004.",
+			"As a result, I must respectfully decline your request for compensation.",
+			"In this particular case, as {gender} {lastName} was departing from a non-EU country to a non-EU country, compensation as per EU Regulation 261/2004 is not applicable."
+		],
+		"groups": [
+			{
+				"id": "deny_delta",
+				"title": "Delta Airlines",
+				"content": [
+					"The EU regulation EU261/2004 is not applicable for a flight departing a non-EU territory (United States) when operated by a non-EU domiciled airline (Delta Air Lines)."
+				],
+				"block": 0
+			}
+		],
+		"block": 0,
+		"icon": "🚫"
+	},
+	{
+		"id": "section_goodbyes",
+		"title": "Goodbyes",
+		"content": [
+			"Kindly forward our sincerest apologies to {gender} {lastName} for this unfortunate situation.",
+			"We would like to ask you to forward our apologies to our mutual client, {gender} {lastName} for this unfortunate situation."
+		],
+		"groups": [
+			{
+				"id": "goodbyes_co-op",
+				"title": "CO-OP",
+				"content": [
+					"Thank you for your co-operation.",
+					"We appreciate your co-operation."
+				],
+				"block": 1
+			},
+			{
+				"id": "goodbyes_signature",
+				"title": "Signature",
+				"content": [
+					"Yours sincerely,<br>H. Koev<br>Air France KLM Customer Care Assistant",
+					"Yours sincerely,<br>Hristo Koev<br>Air France KLM Customer Care Assistant",
+					"To follow up on the status of your case you can use this link: <a href=\"https://wwws.airfrance.co.uk/claim/track-a-claim\" target=\"_blank\">Track my claim</a>"
+				],
+				"block": 1
+			}
+		],
+		"block": 1,
+		"icon": "👋"
+	}
+]

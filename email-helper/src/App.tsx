@@ -6,14 +6,14 @@ function App() {
 
 	const [jsonData, setJsonData] = useState([])
 
-	const getData = () => {
-		fetch('./data.json', {
-				headers: {
-					'Content-Type': 'application/json',
-					'Accept': 'application/json'
-				}
+	const getData = (data: string) => {
+		fetch(data, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
 			}
-			)
+		}
+		)
 			.then(function (response) {
 				return response.json();
 			})
@@ -22,17 +22,14 @@ function App() {
 			});
 	}
 
-	useEffect(() => {
-		getData()
-	}, [])
-
 	const [section, setSection] = useState(0)
 	const [formData, setFormData] = useState({
 		gender: "Mr.",
 		lastName: "XXX",
+		thirdParty: false,
 		disruption: "delay",
 		disrupted: "delayed",
-		reasons: "REASONS",
+		reasons: "operational reasons",
 		delay: "DELAY",
 		flight: "XX XXXX",
 		flightDep: "DEPARTURE",
@@ -58,10 +55,17 @@ function App() {
 		}
 	}
 
-	if (!jsonData.length) return
+	useEffect(() => {
+		if (!formData.thirdParty)
+			getData('./data.json')
+		else
+			getData('./data-3rd.json')
+	}, [formData.thirdParty])
+
+	if (!jsonData.length) return (<div>Loading...</div>)
 
 	return (
-		<>
+		<div>
 			<div className="w-full fixed mt-4 px-8 mx-auto">
 				<div className="flex justify-end gap-2">
 					<button className="p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white text-sm" onClick={() => alert("Soon!")}>Load JSON</button>
@@ -74,30 +78,32 @@ function App() {
 					<span className="text-slate-300 text-center">For the lazy ones...</span>
 					<span className="text-slate-300 text-center">built with React by Hristo Koev</span>
 				</div>
-				<div className="grid grid-rows-2 gap-4 text-gray-300">
+				<div className="grid grid-rows-2 gap-2 text-gray-300">
 					<div className="flex items-end justify-between gap-2">
 						<div className="w-full">
-							<span>Passenger</span>
-							<div className="mt-2 flex gap-2">
+							{/* <span>Passenger</span> */}
+							<div className="p-2 flex gap-2">
 								<label htmlFor="gender_mr" className={`block px-4 py-2 w-2/12 border border-gray-600 rounded-lg cursor-pointer ${formData.gender === "Mr." ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, gender: "Mr." }) }}>Mr.</label>
 								<input type="radio" name="gender" id="gender_mr" className="hidden" />
 								<label htmlFor="gender_mrs" className={`block px-4 py-2 w-2/12 border border-gray-600 rounded-lg cursor-pointer ${formData.gender === "Mrs." ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, gender: "Mrs." }) }}>Mrs.</label>
 								<input type="radio" name="gender" id="gender_mrs" className="hidden" />
 								<label htmlFor="gender_ms" className={`block px-4 py-2 w-2/12 border border-gray-600 rounded-lg cursor-pointer ${formData.gender === "Ms." ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, gender: "Ms." }) }}>Ms.</label>
 								<input type="radio" name="gender" id="gender_ms" className="hidden" />
-								<input type="text" placeholder="Last name" autoFocus className="px-4 py-2 w-6/12 bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, lastName: (e.target as HTMLButtonElement).value }) }} />
+								<input type="text" placeholder="Last name" autoFocus className="px-4 py-2 w-5/12 bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, lastName: (e.target as HTMLInputElement).value }) }} />
+								<label htmlFor="third_party" className={`block w-2/12 py-2 border border-gray-600 rounded-lg text-center cursor-pointer select-none ${formData.thirdParty ? "bg-pink-500 text-white" : "hover:bg-gray-900"}`}>3RD Party</label>
+								<input type="checkbox" id="third_party" className="hidden" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, thirdParty: (e.target as HTMLInputElement).checked }) }} />
 							</div>
 						</div>
 						<div className="w-full">
-							<span>Disruption</span>
-							<div className="mt-2 flex gap-2 text-gray-300">
+							{/* <span>Disruption</span> */}
+							<div className="p-2 flex gap-2 text-gray-300">
 								<label htmlFor="flight_delayed" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "delay" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "delay", disrupted: "delayed" }) }}>Delay</label>
 								<input type="radio" name="reason" id="flight_delayed" className="hidden" />
 								<label htmlFor="flight_cancelled" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "cancellation" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "cancellation", disrupted: "cancelled" }) }}>Cancellation</label>
 								<input type="radio" name="reason" id="flight_cancelled" className="hidden" />
 								<label htmlFor="flight_denied_boarding" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "denied boarding" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "denied boarding", disrupted: "denied boarding" }) }}>Denied boarding</label>
 								<input type="radio" name="reason" id="flight_denied_boarding" className="hidden" />
-								<select name="reasons" id="flight_reason" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer bg-gray-800 text-white hover:bg-gray-900`}  onChange={(e) => { setFormData({ ...formData, reasons: e.currentTarget.value }) }}>
+								<select name="reasons" id="flight_reason" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer bg-gray-800 text-white hover:bg-gray-900`} onChange={(e) => { setFormData({ ...formData, reasons: e.currentTarget.value }) }}>
 									<option value="operational reasons">Operational</option>
 									<option value="technical reasons">Technical</option>
 									<option value="staff strike">Strike</option>
@@ -107,19 +113,19 @@ function App() {
 							</div>
 						</div>
 					</div>
-					<div className="">
-						<span>Flight</span>
-						<div className="mt-2 flex gap-2 col-span-2 text-gray-300">
+					<div className="w-full">
+						{/* <span>Flight</span> */}
+						<div className="p-2 flex gap-2 col-span-2 text-gray-300">
 							<input type="text" placeholder="Flight" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flight: (e.target as HTMLButtonElement).value }) }} />
 							<input type="text" placeholder="From" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDep: (e.target as HTMLButtonElement).value }) }} />
 							{formData.flightDep && formData.flightArr && <button onClick={() => alert("Soon!")}>✈</button>}
 							<input type="text" placeholder="To" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightArr: (e.target as HTMLButtonElement).value }) }} />
 							<input type="text" placeholder="Connection" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightCon: (e.target as HTMLButtonElement).value }) }} />
-							<input type="text" placeholder="Date (DD MMM YYYY)"className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDate: (e.target as HTMLButtonElement).value }) }} />
+							<input type="text" placeholder="Date (DD MMM YYYY)" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDate: (e.target as HTMLButtonElement).value }) }} />
 						</div>
 					</div>
 				</div>
-				<div className="mt-4 mb-4 grid grid-cols-8 gap-2 text-gray-300">
+				<div className="border-t border-gray-600 pt-8 mt-8 mb-4 grid grid-cols-7 gap-2 text-gray-300">
 					{jsonData.map(({ id, title, icon }, index) => (
 						<button onClick={() => setSection(index)} key={id} className={`px-4 py-2 border border-gray-600 rounded-lg ${index === section ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`}>{icon} {title}</button>
 					))}
@@ -133,7 +139,7 @@ function App() {
 				</div>
 
 			</div>
-		</>
+		</div>
 	)
 }
 
