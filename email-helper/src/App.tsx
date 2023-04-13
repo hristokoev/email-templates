@@ -70,7 +70,7 @@ function App() {
 			</div>
 			<div className="mt-4 px-8 mx-auto">
 				<div className="mb-8 flex flex-col justify-center">
-					<h1 className="p-4 text-white text-4xl text-center font-bold">CC Email Templates Generator v1.0</h1>
+					<h1 className="p-4 text-white text-4xl text-center font-bold">CC Email Templates Generator v1.01</h1>
 					<span className="text-slate-300 text-center">For the lazy ones...</span>
 					<span className="text-slate-300 text-center">built with React by Hristo Koev</span>
 				</div>
@@ -92,11 +92,18 @@ function App() {
 							<span>Disruption</span>
 							<div className="mt-2 flex gap-2 text-gray-300">
 								<label htmlFor="flight_delayed" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "delay" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "delay", disrupted: "delayed" }) }}>Delay</label>
-								<input type="radio" name="gender" id="flight_delayed" className="hidden" />
+								<input type="radio" name="reason" id="flight_delayed" className="hidden" />
 								<label htmlFor="flight_cancelled" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "cancellation" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "cancellation", disrupted: "cancelled" }) }}>Cancellation</label>
-								<input type="radio" name="gender" id="flight_cancelled" className="hidden" />
+								<input type="radio" name="reason" id="flight_cancelled" className="hidden" />
 								<label htmlFor="flight_denied_boarding" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "denied boarding" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "denied boarding", disrupted: "denied boarding" }) }}>Denied boarding</label>
-								<input type="radio" name="gender" id="flight_denied_boarding" className="hidden" />
+								<input type="radio" name="reason" id="flight_denied_boarding" className="hidden" />
+								<select name="reasons" id="flight_reason" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer bg-gray-800 text-white hover:bg-gray-900`}  onChange={(e) => { setFormData({ ...formData, reasons: e.currentTarget.value }) }}>
+									<option value="operational reasons">Operational</option>
+									<option value="technical reasons">Technical</option>
+									<option value="staff strike">Strike</option>
+									<option value="air traffic control reasons">ATC</option>
+									<option value="bad weather">Weather</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -108,7 +115,7 @@ function App() {
 							{formData.flightDep && formData.flightArr && <button onClick={() => alert("Soon!")}>✈</button>}
 							<input type="text" placeholder="To" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightArr: (e.target as HTMLButtonElement).value }) }} />
 							<input type="text" placeholder="Connection" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightCon: (e.target as HTMLButtonElement).value }) }} />
-							<input type="date" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDate: (e.target as HTMLButtonElement).value }) }} />
+							<input type="text" placeholder="Date (DD MMM YYYY)"className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDate: (e.target as HTMLButtonElement).value }) }} />
 						</div>
 					</div>
 				</div>
