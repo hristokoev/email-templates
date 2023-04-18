@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import Modal from "./Modal";
 import Section from "./Section";
+import axios from 'axios';
+import Airport from "./Airport";
 
 function App() {
 
@@ -24,21 +26,43 @@ function App() {
 
 	const [section, setSection] = useState(0)
 	const [formData, setFormData] = useState({
-		gender: "Mr.",
-		lastName: "XXX",
+		gender: `<span class="text-red-500">Mr.</span>`,
+		lastName: `<span class="text-red-500">XXX</span>`,
 		thirdParty: false,
-		disruption: "delay",
-		disrupted: "delayed",
-		reasons: "operational reasons",
-		delay: "DELAY",
-		flight: "XX XXXX",
-		flightDep: "DEPARTURE",
-		flightArr: "ARRIVAL",
-		flightCon: "CONNECTION",
-		flightDate: "DATE",
+		disruption: `<span class="text-red-500">DISRUPTION</span>`,
+		disrupted: `<span class="text-red-500">DISRUPTED</span>`,
+		reasons: `<span class="text-red-500">REASONS</span>`,
+		delay: `<span class="text-red-500">DELAY</span>`,
+		flight: `<span class="text-red-500">XX XXXX</span>`,
+		flightDep: [`<span class="text-red-500">DEPARTURE</span>`,""],
+		flightArr: [`<span class="text-red-500">ARRIVAL</span>`,""],
+		flightCon: [`<span class="text-red-500">CONNECTION</span>`,""],
+		flightDate: `<span class="text-red-500">DATE</span>`,
 	})
 	const [block0Data, setBlock0Data] = useState<string[]>([])
 	const [block1Data, setBlock1Data] = useState<string[]>([])
+
+	const [airportName, setAirportName] = useState<string>('');
+
+	const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+		const code = event.target.value;
+		const container = event.target.id;
+		if (code) {
+			try {
+				const response = await axios.get(
+					`https://koev.cz/bl/iata.php?q=${code.toUpperCase()}`
+				);
+				if (container === 'container_dep')
+					setFormData({ ...formData, flightDep: [`${response.data}`, code] })
+				else if (container === 'container_arr')
+					setFormData({ ...formData, flightArr: [`${response.data}`, code] })
+				else if (container === 'container_con')
+					setFormData({ ...formData, flightCon: [`${response.data}`, code] })
+			} catch (error) {
+				alert('Error retrieving airport information')
+			}
+		}
+	};
 
 	const addToBlock = (index: number, text: string) => {
 		if (index === 0) {
@@ -62,10 +86,22 @@ function App() {
 			getData('./data-3rd.json')
 	}, [formData.thirdParty])
 
+	// const [iata, setIata] = useState([]);
+
+	const loadCity = async (apt: string) => {
+
+		let res = await axios.get(`https://koev.cz/bl/iata.php?q=${apt}`);
+		if (res.data) {
+			console.log(res.data);
+			return (res.data);
+		}
+	}
+
 	if (!jsonData.length) return (<div>Loading...</div>)
 
 	return (
 		<div>
+			<Airport />
 			<div className="w-full fixed mt-4 px-8 mx-auto">
 				<div className="flex justify-end gap-2">
 					<button className="p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white text-sm" onClick={() => alert("Soon!")}>Load JSON</button>
@@ -74,7 +110,7 @@ function App() {
 			</div>
 			<div className="mt-4 px-8 mx-auto">
 				<div className="mb-8 flex flex-col justify-center">
-					<h1 className="p-4 text-white text-4xl text-center font-bold">CC Email Templates Generator v1.01</h1>
+					<h1 className="p-4 text-white text-4xl text-center font-bold">CC Email Templates Generator v1.03</h1>
 					<span className="text-slate-300 text-center">For the lazy ones...</span>
 					<span className="text-slate-300 text-center">built with React by Hristo Koev</span>
 				</div>
@@ -104,6 +140,7 @@ function App() {
 								<label htmlFor="flight_denied_boarding" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "denied boarding" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "denied boarding", disrupted: "denied boarding" }) }}>Denied boarding</label>
 								<input type="radio" name="reason" id="flight_denied_boarding" className="hidden" />
 								<select name="reasons" id="flight_reason" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer bg-gray-800 text-white hover:bg-gray-900`} onChange={(e) => { setFormData({ ...formData, reasons: e.currentTarget.value }) }}>
+									{/* <option hidden disabled selected>Reason</option> */}
 									<option value="operational reasons">Operational</option>
 									<option value="technical reasons">Technical</option>
 									<option value="staff strike">Strike</option>
@@ -117,15 +154,15 @@ function App() {
 						{/* <span>Flight</span> */}
 						<div className="p-2 flex gap-2 col-span-2 text-gray-300">
 							<input type="text" placeholder="Flight" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flight: (e.target as HTMLButtonElement).value }) }} />
-							<input type="text" placeholder="From" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDep: (e.target as HTMLButtonElement).value }) }} />
-							{formData.flightDep && formData.flightArr && <button onClick={() => alert("Soon!")}>✈</button>}
-							<input type="text" placeholder="To" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightArr: (e.target as HTMLButtonElement).value }) }} />
-							<input type="text" placeholder="Connection" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightCon: (e.target as HTMLButtonElement).value }) }} />
+							<input type="text" placeholder="From" id="container_dep" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={handleChange} />
+							{formData.flightDep[1].length == 3 && formData.flightArr[1].length == 3 && <a href={`https://www.greatcirclemap.com/?routes=${formData.flightDep[1]}-${formData.flightArr[1]}`} target="_blank" rel="noreferrer" className="block p-2">✈️</a>}
+							<input type="text" placeholder="To" id="container_arr" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={handleChange} />
+							<input type="text" placeholder="Connection" id="container_con" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={handleChange} />
 							<input type="text" placeholder="Date (DD MMM YYYY)" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDate: (e.target as HTMLButtonElement).value }) }} />
 						</div>
 					</div>
 				</div>
-				<div className="border-t border-gray-600 pt-8 mt-8 mb-4 grid grid-cols-7 gap-2 text-gray-300">
+				<div className="pt-4 mt-4 mb-4 grid grid-cols-7 gap-2 text-gray-300">
 					{jsonData.map(({ id, title, icon }, index) => (
 						<button onClick={() => setSection(index)} key={id} className={`px-4 py-2 border border-gray-600 rounded-lg ${index === section ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`}>{icon} {title}</button>
 					))}

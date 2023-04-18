@@ -33,8 +33,8 @@ export interface FormData {
 	reasons: string,
 	delay: string,
 	flight: string;
-	flightDep: string;
-	flightArr: string;
-	flightCon: string;
+	flightDep: string[];
+	flightArr: string[];
+	flightCon: string[];
 	flightDate: string;	
 }

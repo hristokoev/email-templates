@@ -1,0 +1,260 @@
+[
+	{
+		"id": "section_general",
+		"title": "General",
+		"content": [
+			"Dear {gender} {lastName},",
+			"Dear Sir/Madam,",
+			"Thank you for reaching out to us.",
+			"Thank you for reaching out to us regarding the {disruption} of your flight {flight} from {flightDep}.",
+			"Thank you for reaching out to us regarding the {disruption} of your flight {flight} to {flightArr}.",
+			"Thank you for reaching out to us regarding your flight {disruption} from {flightDep} to {flightArr} on {flightDate}.",
+			"Thank you for reaching out to us regarding your flight {disruption} from {flightDep} to {flightArr} with connection {flightCon}.",
+			"I am sorry to learn that your flight journey from {flightDep} to {flightArr} was disrupted due to the {disruption} of the flight {flight} and I can understand this situation was frustrating for you.",
+			"I am sorry to learn that your flight journey from {flightDep} to {flightArr} with connection {flightCon} was disrupted due to {disruption} of the flight {flight} and I can understand this situation was frustrating for you.",
+			"First, please accept my apologies on behalf of Air France KLM for the inconvenience you have experienced.",
+			"We make every effort to keep our customers informed. To reduce the impact of this action on our passengers, we arrange re-bookings and re-routings with other carriers or by train and transfer reservations to alternative dates whenever possible.",
+			"We deeply regret this incident, which should in no way reflect the level of service we aim to offer our passengers.",
+			"I am sorry to learn that you were downgraded on your recent flight."
+		],
+		"groups": [
+			{
+				"id": "general_delta",
+				"title": "Delta Airlines",
+				"content": [
+					"First, I would like to inform you that Air France KLM assists Delta Air Line for the passengers living in Europe."
+				],
+				"block": 0
+			},
+			{
+				"id": "general_late-reply",
+				"title": "Late reply",
+				"content": [
+					"Please accept my apologies for the late reply. Due to exceptional circumstances KLM is experiencing a very high volume of claims at the moment. I apologize for the unusual delay in the handling of your case.",
+					"Please let me apologize that it’s taken so long for you to hear back from us. I know that it’s frustrating to be kept waiting, and I truly regret that the amount of incoming correspondence made us unable to reply to you sooner."
+				],
+				"block": 0
+			},
+			{
+				"id": "general_feedback",
+				"title": "Feedback",
+				"content": [
+					"Thank you for taking the time to send us your comments about the service provided by the special services staff at {flightDep}. After reading your message, I certainly understand why you wanted to let us know about this situation.",
+					"We expect all staff assisting our passengers to be helpful and professional at all times. I am sorry you did not receive the service you expected and should have received. Your feedback means a lot to us and we will share your comments with that team."
+				],
+				"block": 0
+			}
+		],
+		"block": 0,
+		"icon": "ℹ️"
+	},
+	{
+		"id": "section_requests",
+		"title": "Requests",
+		"content": [
+			"For me to proceed with your claim I would be grateful if you could give me as much information as you can, such as your PNR number, number of the flight, preferably a ticket number or anything else that you may think of that can help me with resolving your claim. I apologize for this, but I’m having trouble finding your previous claim in our system."
+		],
+		"groups": [
+			{
+				"id": "requests_iban",
+				"title": "IBAN",
+				"content": [
+					"For me to proceed with your claim I would be grateful if you could forward me as soon as possible your complete bank details (postal details) including your IBAN code (such as: IBAN GB29 NWBK 6016 1331 9268 19), SWIFT code, bank name, bank address, currency of your account and the full name and address of the account holder.",
+					"The bank account details you have provided are for the digital bank Revolut and the majority of payments made to these accounts are returned to us. We are in discussions with Revolut about this but the issue cannot be solved at short notice. In view of this, I would be grateful if you could please provide details of an alternative bank account with another organisation in order that we can make this payment to you as soon as possible."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_id",
+				"title": "Copy of ID",
+				"content": [
+					"In order for me to continue processing your claim, I will need a copy of {gender} {lastName}'s ID or passport (with photo and serial number redacted)."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_poa",
+				"title": "Power of attorney",
+				"content": [
+					"In order for me to continue processing your claim, I will need a signed power of attorney from {gender} {lastName}."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_id_poa",
+				"title": "ID and POA",
+				"content": [
+					"In order for me to continue processing your claim, I will need a copy of {gender} {lastName}'s ID or passport (with photo and serial number redacted) and a signed power of attorney."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_receipts",
+				"title": "Receipts",
+				"content": [
+					"In order for me to proceed with any reimbursement, I will need you to send me receipts, invoices or bills that are related to this {disruption}. I would love to help you any way I can."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_receipts_promise",
+				"title": "Receipts - Promise",
+				"content": [
+					"I would like to consider reimbursing any reasonable expenses you incurred as a direct result of this {disruption}. Please send me any invoices or receipts you may have, so I can consider them in your claim."
+				],
+				"block": 0
+			},
+			{
+				"id": "requests_notes",
+				"title": "Notes",
+				"content": [
+					"Please note that you can reply directly to this email and attach all the documents requested.",
+					"You can reply to this email with all the necessary information and documents.",
+					"Your case will be processed as soon as we receive all the necessary information and documents."
+				],
+				"block": 0
+			}
+		],
+		"block": 0,
+		"icon": "❔"
+	},
+	{
+		"id": "section_requests_after",
+		"title": "Request - After",
+		"content": [
+			"Thank you for sending me your bank details.",
+			"Thank you for sending me the requested ID.",
+			"Thank you for sending me the requested power of attorney.",
+			"Thank you for sending me the requested ID and power of attorney.",
+			"Thank you for sending me the requested information.",
+			"Thank you for sending me the requested documents.",
+			"Thank you for sending me the requested receipts, which really helped me with the process of solving your claim."
+		],
+		"groups": [],
+		"block": 0,
+		"icon": "✔️"
+	},
+	{
+		"id": "section_investigation",
+		"title": "Investigation",
+		"content": [
+			"The flight in question, {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
+			"According to our system, the flight {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
+			"After further investigation, the flight {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
+			"It appears that you have bought your ticket with {travel agency}. I would now ask you to contact your travel agent who will be able to process any potential refund due.",
+			"I have forwarded a copy of your file to our Refunds Department who will be able to process any potential refund due directly back to the original method of payment.",
+			"Our records show that flight {flight} on {flightDate} was {disrupted} due to {reasons} and arrived at airport {flightCon} at with delay of {delay}. Unfortunately, there wasn't enough time for you to transfer onto your onward connection in {flightArr}. I know this delay was inconvenient and we truly regret this happened."
+		],
+		"groups": [
+			{
+				"id": "investigation_damage_control",
+				"title": "Damage control",
+				"content": [
+					"While I fully understand your disappointment at not being able to travel as planned, I hope that the explanation above clarifies how this situation occurred.",
+					"I understand how frustrating it must have been to experience a flight disruption and I'm sorry for the inconvenience it caused. We understand how important it is for you to have a comfortable and reliable journey and we are doing our best to improve our services so that this does not happen again.",
+					"I sincerely regret that you were disappointed with our services on this occasion and hope that this explanation will help clarify the exceptional nature of these circumstances and restore your confidence in our company."
+				],
+				"block": 0
+			}
+		],
+		"block": 0,
+		"icon": "✈️"
+	},
+	{
+		"id": "section_pay",
+		"title": "Pay",
+		"content": [
+			"I'm pleased to inform you that you're eligible for compensation as per EU Regulation 261/2004.",
+			"However, please let me inform you that this situation makes you eligible for compensation as per EU Regulation 261/2004.",
+			"As a conclusion, I’m happy to let you know that I’ve arranged the following transfer to your bank account:",
+			"In view of all this, I’m happy to let you know that we will be transferring the following amount to your bank account:",
+			"I’m happy to let you know that I’ve arranged the transfer of the following amount to your bank account:"
+		],
+		"groups": [
+			{
+				"id": "pay_emd",
+				"title": "EMD",
+				"content": [
+					"I'm pleased to inform you that I've arranged the following EMD voucher to be sent to you:",
+					"I'm happy to let you know that I've arranged the following EMD voucher to be sent to you:",
+					"In view of this, I've issued the following EMD voucher for your next flight with us:"
+				],
+				"block": 0
+			},
+			{
+				"id": "pay_notes",
+				"title": "Notes",
+				"content": [
+					"Please remember that this is an international payment which can take up to three weeks to be processed."
+				],
+				"block": 1
+			},
+			{
+				"id": "pay_emd",
+				"title": "EMD Voucher",
+				"content": [
+					"This voucher is valid for 12 months from the date of issue and can be used to purchase an Air France or KLM ticket for travel on Air France, KLM, Delta Air Lines, Virgin Atlantic and/or Kenya Airways.",
+					"You can redeem it on www.airfrance.com by choosing the 'E-voucher' option on the payment page once you have selected the flights you want. You can then pay any balance by another form of payment.",
+					"Your voucher can also be used towards the pre-purchase of other optional products and services (where offered) on Air France or KLM operated and marketed flights, e.g. paid seating, additional baggage allowance and a la carte meals. In-flight purchases are not possible with the voucher.",
+					"When you use your voucher to make a purchase for a lesser amount than its value, we will issue you with a new voucher for the residual amount.",
+					"You can also use your voucher through our call centers or in person at your local Air France office. Their contact details can be found on our websites at www.airfrance.com or www.klm.com.",
+					"Travel agencies may accept this voucher at their discretion, and they may apply additional service fees.",
+					"The voucher needs to be redeemed within the validity period of 12 months from the date of issue, but outbound and return travel can be up to 350 days after the date the voucher is used.",
+					"A maximum of two Air France and/or KLM vouchers can be used per person. Our websites accept two vouchers per booking, so if you use two vouchers per person for a booking of more than one person, you should make separate bookings or contact our call center.",
+					"The voucher can only be used by the named owner, by passengers having the same family name or by passengers traveling together with the original voucher owner. It is not transferable and cannot be bartered or sold. Doing so will render it invalid."
+				],
+				"block": 1
+			}
+		],
+		"block": 0,
+		"icon": "💲"
+	},
+	{
+		"id": "section_deny",
+		"title": "Deny",
+		"content": [
+			"A situation such as this unfortunately does not entitle you to compensation under EU Regulation 261/2004.",
+			"A situation like this which presents itself beyond our scope of influence can be regarded as an extraordinary circumstance and therefore is not one where there is an entitlement to compensation under EU Regulation 261/2004.",
+			"As a result, I must respectfully decline your request for compensation.",
+			"In your particular case, as you were departing from a non-EU country to a non-EU country, compensation as per EU Regulation 261/2004 is not applicable. We are sorry for any disappointment that this may cause."
+		],
+		"groups": [
+			{
+				"id": "deny_delta",
+				"title": "Delta Airlines",
+				"content": [
+					"I regret to inform you that the EU regulation EU261/2004 is not applicable for a flight departing a non-EU territory (United States) when operated by a non-EU domiciled airline (Delta Air Lines)."
+				],
+				"block": 0
+			}
+		],
+		"block": 0,
+		"icon": "🚫"
+	},
+	{
+		"id": "section_goodbyes",
+		"title": "Goodbyes",
+		"content": [
+			"I hope that your subsequent journeys with us will be to your entire satisfaction.",
+			"I very much hope that on your next flight with us everything will be to your complete satisfaction.",
+			"We at Air France KLM hope that your subsequent journeys with us will be to your entire satisfaction.",
+			"We look forward to serving your travel needs again in the near future and to welcoming you aboard another of our flights.",
+			"I have no doubt that your next experience will be a more positive one and hope it doesn't discourage you from flying with us in the future."
+		],
+		"groups": [
+			{
+				"id": "goodbyes_signature",
+				"title": "Signature",
+				"content": [
+					"Yours sincerely,<br>H. Koev<br>Air France KLM Customer Care Assistant",
+					"Yours sincerely,<br>Hristo Koev<br>Air France KLM Customer Care Assistant",
+					"Should you require any further assistance, the telephone number and local opening hours for your local Customer Care Department can be found on the contact pages of our website.",
+					"To follow up on the status of your case you can use this link: <a href=\"https://wwws.airfrance.co.uk/claim/track-a-claim\" target=\"_blank\">Track my claim</a>"
+				],
+				"block": 1
+			}
+		],
+		"block": 1,
+		"icon": "👋"
+	}
+]

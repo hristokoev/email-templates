@@ -12,9 +12,9 @@ const Group = ({ groupData, formData, block0Data, block1Data, addToBlock }: Grou
 		reasons: formData.reasons,
 		delay: formData.delay,
 		flight: formData.flight,
-		flightDep: formData.flightDep,
-		flightArr: formData.flightArr,
-		flightCon: formData.flightCon,
+		flightDep: formData.flightDep[0],
+		flightArr: formData.flightArr[0],
+		flightCon: formData.flightCon[0],
 		flightDate: formData.flightDate
 	}
 
