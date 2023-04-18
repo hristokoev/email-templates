@@ -153,7 +153,7 @@ function App() {
 						<div className="p-2 flex gap-2 col-span-2 text-gray-300">
 							<input type="text" placeholder="Flight" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flight: (e.target as HTMLButtonElement).value }) }} />
 							<input type="text" placeholder="From" id="container_dep" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={handleChange} />
-							{formData.flightDep[1].length == 3 && formData.flightArr[1].length == 3 && <a href={`https://www.greatcirclemap.com/?routes=${formData.flightDep[1]}-${formData.flightArr[1]}`} target="_blank" rel="noreferrer" className="block p-2">✈️</a>}
+							<a href={`https://www.greatcirclemap.com/?routes=${formData.flightDep[1]}-${formData.flightArr[1]}`} target="_blank" rel="noreferrer" className="block p-2">✈️</a>
 							<input type="text" placeholder="To" id="container_arr" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={handleChange} />
 							<input type="text" placeholder="Connection" id="container_con" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={handleChange} />
 							<input type="text" placeholder="Date (DD MMM YYYY)" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flightDate: (e.target as HTMLButtonElement).value }) }} />
