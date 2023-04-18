@@ -2,7 +2,6 @@ import { useEffect, useState, useCallback } from "react";
 import Modal from "./Modal";
 import Section from "./Section";
 import axios from 'axios';
-import Airport from "./Airport";
 
 function App() {
 
@@ -50,7 +49,7 @@ function App() {
 		if (code) {
 			try {
 				const response = await axios.get(
-					`https://koev.cz/bl/iata.php?q=${code.toUpperCase()}`
+					`./iata.php?q=${code.toUpperCase()}`
 				);
 				if (container === 'container_dep')
 					setFormData({ ...formData, flightDep: [`${response.data}`, code] })
@@ -101,7 +100,6 @@ function App() {
 
 	return (
 		<div>
-			<Airport />
 			<div className="w-full fixed mt-4 px-8 mx-auto">
 				<div className="flex justify-end gap-2">
 					<button className="p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white text-sm" onClick={() => alert("Soon!")}>Load JSON</button>
