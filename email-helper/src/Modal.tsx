@@ -1,16 +1,16 @@
 import React from "react";
 
-export default function Modal({generatedText}: any) {
+export default function Modal({generatedText0, generatedText1}: any) {
 	const [showModal, setShowModal] = React.useState(false);
 	return (
 		<>
 			<button
-				className={`w-[90%] ${generatedText.length !== 0 ? "bg-pink-500 active:bg-pink-600 cursor-pointer" : "bg-gray-700 cursor-not-allowed"} text-white font-bold uppercase text-sm p-2 rounded ease-linear transition-all duration-150`}
+				className={`w-[90%] ${(generatedText0.length !== 0 || generatedText1.length !== 0) ? "bg-pink-500 active:bg-pink-600 cursor-pointer" : "bg-gray-700 cursor-not-allowed"} text-white font-bold uppercase text-sm p-2 rounded ease-linear transition-all duration-150`}
 				type="button"
 				onClick={() => setShowModal(true)}
-				disabled={!generatedText.length}
+				disabled={!generatedText0.length && !generatedText1.length}
 			>
-				{generatedText.length ? "Generate" : "Select some text first 😊"}
+				{(generatedText0.length || generatedText1.length) ? "Generate" : "Select some text first 😊"}
 			</button>
 			{showModal ? (
 				<>
@@ -35,11 +35,33 @@ export default function Modal({generatedText}: any) {
 									</button>
 								</div>
 								{/*body*/}
-								<div className="relative p-6 flex-auto outline-none">
+								{generatedText0.length > 0 &&
+								(
+								<div className="p-6 flex flex-auto bg-slate-100">
 									{/* <p className="my-4 text-slate-500 text-lg leading-relaxed"> */}
-										{generatedText.map((el: string) => (<p dangerouslySetInnerHTML={{__html: el}} className="py-1"></p>))}
+										<div>
+											{generatedText0.map((el: string) => (<p dangerouslySetInnerHTML={{__html: el}} className="py-1"></p>))}
+										</div>
+										{/* <div className="ml-auto">
+											<button className="mx-4 p-2 border border-slate-400 hover:bg-slate-200 rounded-md" onClick={() => navigator.clipboard.writeText(generatedText0)}>📝</button>
+										</div> */}
 									{/* </p> */}
 								</div>
+								)
+								}
+								{generatedText1.length > 0 &&
+								(<div className="p-6 flex align-middle flex-auto border-t border-slate-300 bg-slate-100">
+									{/* <p className="my-4 text-slate-500 text-lg leading-relaxed"> */}
+										<div>
+											{generatedText1.map((el: string) => (<p dangerouslySetInnerHTML={{__html: el}} className="py-1"></p>))}
+										</div>
+										{/* <div className="ml-auto self-start">
+											<button className="mx-4 p-2 border border-slate-400 hover:bg-slate-200 rounded-md" onClick={() => navigator.clipboard.writeText(generatedText1)}>📝</button>
+										</div> */}
+									{/* </p> */}
+								</div>
+								)
+								}
 								{/*footer*/}
 								<div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
 									<button

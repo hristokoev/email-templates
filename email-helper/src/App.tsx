@@ -100,12 +100,12 @@ function App() {
 	if (!jsonData.length) return (<div>Loading...</div>)
 
 	return (
-		<div>
+		<div className="bg-gradient-to-br from-gray-900 to-slate-800 h-screen">
 			<div className="py-4 px-8 mx-auto">
 				<div className="mb-8 flex flex-col justify-center">
 					<h1 className="p-4 text-white text-4xl text-center font-bold">CC Email Templates Generator v1.03</h1>
-					<span className="text-slate-300 text-center">For the lazy ones...</span>
-					<span className="text-slate-300 text-center">built with React by Hristo Koev</span>
+					<span className="text-slate-300 text-center text-sm">For the lazy ones...</span>
+					<span className="text-slate-300 text-center text-sm">built with React by Hristo Koev</span>
 				</div>
 				<div className="grid grid-rows-2 gap-2 text-gray-300">
 					<div className="flex items-end justify-between">
@@ -165,7 +165,7 @@ function App() {
 					<Section data={jsonData[section]} formData={formData} block0Data={block0Data} block1Data={block1Data} addToBlock={addToBlock} />
 				</div>
 				<div className="mt-4 flex gap-2">
-					<Modal generatedText={block0Data.concat(block1Data)} />
+					<Modal generatedText0={block0Data} generatedText1={block1Data} />
 					<button className="w-[10%] p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white" onClick={() => { setBlock0Data([]); setBlock1Data([]) }}>❌</button>
 				</div>
 
