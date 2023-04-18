@@ -161,8 +161,8 @@
 				"id": "deny_fraud",
 				"title": "Fraud",
 				"content": [
-					"Thank you for your communication of {date} regarding a claim under EC Regulation 261/2004 for flight {flight} on {flightDate} from {flightDep} to {flightArr} for {gender} {lastName}.",
-					"We take the security of our customers' personal data very seriously and a check in this instance has identified that the e-mail address {email} is not the same one which was provided in the booking and/or already know to us for this customer. Therefore, we will continue all communication in respect of this claim using the e-mail address we already have for this customer.",
+					"Thank you for your communication of <span class=\"text-red-500\">DATE</span> regarding a claim under EC Regulation 261/2004 for flight {flight} on {flightDate} from {flightDep} to {flightArr} for {gender} {lastName}.",
+					"We take the security of our customers' personal data very seriously and a check in this instance has identified that the e-mail address <span class=\"text-red-500\">EMAIL</span> is not the same one which was provided in the booking and/or already know to us for this customer. Therefore, we will continue all communication in respect of this claim using the e-mail address we already have for this customer.",
 					"Should you be a third party claim agency representing the customer, we would remind you that in March 2017 the European Commission issued an information notice to provide passengers with background legal information regarding the activities of claim agencies in the field of air passenger rights.",
 					"The information notice insists that claims agencies must be able to produce a clear power of attorney, which has not been the case with this claim.",
 					"Furthermore, some jurisdictions require claim agencies to be registered with a local regulator in order to perform this activity lawfully.",

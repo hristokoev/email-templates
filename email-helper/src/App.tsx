@@ -96,27 +96,22 @@ function App() {
 		}
 	}
 
+
 	if (!jsonData.length) return (<div>Loading...</div>)
 
 	return (
 		<div>
-			<div className="w-full fixed mt-4 px-8 mx-auto">
-				<div className="flex justify-end gap-2">
-					<button className="p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white text-sm" onClick={() => alert("Soon!")}>Load JSON</button>
-					<button className="p-2 rounded-md border border-gray-600 bg-gray-800 hover:bg-gray-900 text-white text-sm" onClick={() => alert("Soon!")}>Export JSON</button>
-				</div>
-			</div>
-			<div className="mt-4 px-8 mx-auto">
+			<div className="py-4 px-8 mx-auto">
 				<div className="mb-8 flex flex-col justify-center">
 					<h1 className="p-4 text-white text-4xl text-center font-bold">CC Email Templates Generator v1.03</h1>
 					<span className="text-slate-300 text-center">For the lazy ones...</span>
 					<span className="text-slate-300 text-center">built with React by Hristo Koev</span>
 				</div>
 				<div className="grid grid-rows-2 gap-2 text-gray-300">
-					<div className="flex items-end justify-between gap-2">
+					<div className="flex items-end justify-between">
 						<div className="w-full">
 							{/* <span>Passenger</span> */}
-							<div className="p-2 flex gap-2">
+							<div className="py-2 pr-4 mr-4 flex gap-2 border-r border-gray-700">
 								<label htmlFor="gender_mr" className={`block px-4 py-2 w-2/12 border border-gray-600 rounded-lg cursor-pointer ${formData.gender === "Mr." ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, gender: "Mr." }) }}>Mr.</label>
 								<input type="radio" name="gender" id="gender_mr" className="hidden" />
 								<label htmlFor="gender_mrs" className={`block px-4 py-2 w-2/12 border border-gray-600 rounded-lg cursor-pointer ${formData.gender === "Mrs." ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, gender: "Mrs." }) }}>Mrs.</label>
@@ -130,13 +125,14 @@ function App() {
 						</div>
 						<div className="w-full">
 							{/* <span>Disruption</span> */}
-							<div className="p-2 flex gap-2 text-gray-300">
-								<label htmlFor="flight_delayed" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "delay" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "delay", disrupted: "delayed" }) }}>Delay</label>
+							<div className="py-2 flex gap-2 text-gray-300">
+								<label htmlFor="flight_delayed" className={`flex px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "delay" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "delay", disrupted: "delayed" }) }}>Delay</label>
 								<input type="radio" name="reason" id="flight_delayed" className="hidden" />
-								<label htmlFor="flight_cancelled" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "cancellation" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "cancellation", disrupted: "cancelled" }) }}>Cancellation</label>
+								<label htmlFor="flight_cancelled" className={`flex px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "cancellation" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "cancellation", disrupted: "cancelled" }) }}>Cancellation</label>
 								<input type="radio" name="reason" id="flight_cancelled" className="hidden" />
-								<label htmlFor="flight_denied_boarding" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "denied boarding" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "denied boarding", disrupted: "denied boarding" }) }}>Denied boarding</label>
+								<label htmlFor="flight_denied_boarding" className={`flex px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer ${formData.disruption === "denied boarding" ? "bg-cyan-500 text-white" : "hover:bg-gray-900"}`} onClick={() => { setFormData({ ...formData, disruption: "denied boarding", disrupted: "denied boarding" }) }}>Denied boarding</label>
 								<input type="radio" name="reason" id="flight_denied_boarding" className="hidden" />
+								<span className="p-2 border hover:bg-gray-900 border-gray-600 rounded-lg cursor-pointer" onClick={() => { setFormData({ ...formData, delay: prompt("What was the delay?") || "" }) }}>🕑</span>
 								<select name="reasons" id="flight_reason" className={`block px-4 py-2 w-4/12 border border-gray-600 rounded-lg cursor-pointer bg-gray-800 text-white hover:bg-gray-900`} onChange={(e) => { setFormData({ ...formData, reasons: e.currentTarget.value }) }}>
 									{/* <option hidden disabled selected>Reason</option> */}
 									<option value="operational reasons">Operational</option>
@@ -150,7 +146,7 @@ function App() {
 					</div>
 					<div className="w-full">
 						{/* <span>Flight</span> */}
-						<div className="p-2 flex gap-2 col-span-2 text-gray-300">
+						<div className="py-2 flex gap-2 col-span-2 text-gray-300">
 							<input type="text" placeholder="Flight" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setFormData({ ...formData, flight: (e.target as HTMLButtonElement).value }) }} />
 							<input type="text" placeholder="From" id="container_dep" className="px-4 py-2 w-full bg-gray-700 border border-gray-600 rounded-lg" onChange={handleChange} />
 							<a href={`https://www.greatcirclemap.com/?routes=${formData.flightDep[1]}-${formData.flightArr[1]}`} target="_blank" rel="noreferrer" className="block p-2">✈️</a>

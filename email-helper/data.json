@@ -141,7 +141,7 @@
 			"The flight in question, {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
 			"According to our system, the flight {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
 			"After further investigation, the flight {flight} from {flightDep} to {flightArr} on {flightDate}, was {disrupted} due to {reasons}.",
-			"It appears that you have bought your ticket with {travel agency}. I would now ask you to contact your travel agent who will be able to process any potential refund due.",
+			"It appears that you have bought your ticket with <span class=\"text-red-500\">TRAVEL AGENCY</span>. I would now ask you to contact your travel agent who will be able to process any potential refund due.",
 			"I have forwarded a copy of your file to our Refunds Department who will be able to process any potential refund due directly back to the original method of payment.",
 			"Our records show that flight {flight} on {flightDate} was {disrupted} due to {reasons} and arrived at airport {flightCon} at with delay of {delay}. Unfortunately, there wasn't enough time for you to transfer onto your onward connection in {flightArr}. I know this delay was inconvenient and we truly regret this happened."
 		],
